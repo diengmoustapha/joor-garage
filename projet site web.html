@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JOOR GARAGE AUTOMOBILE</title>
+
+    <link rel="stylesheet" href="style.css/style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+
+        <div class="logo">
+            JOOR GARAGE AUTOMOBILE
+        </div>
+
+        <nav>
+            <a href="#accueil">Accueil</a>
+            <a href="#apropos">À propos</a>
+            <a href="#services">Services</a>
+            <a href="#produits">Produits</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <button class="btn-panier" onclick="ouvrirPanier()">
+            Panier <span id="compteur">0</span>
+        </button>
+
+    </header>
+
+
+    <!-- =========================
+         ACCUEIL
+    ========================== -->
+
+    <section class="hero" id="accueil">
+
+        <div class="hero-contenu">
+
+            <h1>
+                Bienvenue chez Joor Garage Automobile
+            </h1>
+
+            <p>
+                Découvrez nos meilleures huiles de moteur,
+                huiles de boîte et services automobiles
+                aux meilleurs prix.
+            </p>
+
+            <a href="#produits" class="btn">
+                Découvrir nos produits
+            </a>
+
+        </div>
+
+    </section>
+
+    <section class="services" id="services">
+
+    <h2>Nos services</h2>
+
+    <p class="intro-services">
+        Joor Garage Automobile vous accompagne pour
+        l'entretien et la réparation de votre véhicule.
+    </p>
+
+    <div class="grille-services">
+
+        <div class="service">
+            <div class="icone">🛢️</div>
+            <h3>Vidange</h3>
+            <p>
+                Remplacement de l'huile moteur et contrôle
+                des éléments essentiels de votre véhicule.
+            </p>
+        </div>
+
+        <div class="service">
+            <div class="icone">❄️</div>
+            <h3>Climatisation</h3>
+            <p>
+                Entretien et vérification du système
+                de climatisation de votre automobile.
+            </p>
+        </div>
+
+        <div class="service">
+            <div class="icone">🛠️</div>
+            <h3>Entretien automobile</h3>
+            <p>
+                Un entretien régulier pour garder votre
+                véhicule en bon état.
+            </p>
+        </div>
+
+        <div class="service">
+            <div class="icone">🚗</div>
+            <h3>Diagnostic</h3>
+            <p>
+                Vérification des principaux systèmes
+                de votre véhicule pour détecter les problèmes.
+            </p>
+        </div>
+
+    </div>
+
+    <a href="#contact" class="btn-service">
+        Prendre rendez-vous
+    </a>
+
+</section>
+
+<section class="avantages">
+
+    <h2>Pourquoi choisir Joor Garage Automobile ?</h2>
+
+    <div class="grille-avantages">
+
+        <div class="avantage">
+            <div class="icone-avantage">✓</div>
+            <h3>Produits de qualité</h3>
+            <p>
+                Nous proposons des produits adaptés
+                à l'entretien de votre véhicule.
+            </p>
+        </div>
+
+        <div class="avantage">
+            <div class="icone-avantage">⚡</div>
+            <h3>Service rapide</h3>
+            <p>
+                Nous faisons notre possible pour vous
+                offrir un service rapide et efficace.
+            </p>
+        </div>
+
+        <div class="avantage">
+            <div class="icone-avantage">🛠️</div>
+            <h3>Professionnalisme</h3>
+            <p>
+                Une équipe sérieuse pour prendre soin
+                de votre automobile.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+    <!-- =========================
+         PRODUITS
+    ========================== -->
+
+    <section class="produits" id="produits">
+
+        <h2>Nos produits</h2>
+
+        <div class="filtres-produits">
+
+    <input
+        type="text"
+        id="recherche"
+        placeholder="🔎 Rechercher un produit..."
+        onkeyup="rechercherProduit()"
+    >
+
+    <div class="categories">
+        <button onclick="filtrerProduits('tous')">Tous</button>
+        <button onclick="filtrerProduits('huile')">Huiles</button>
+        <button onclick="filtrerProduits('entretien')">Entretien</button>
+        <button onclick="filtrerProduits('frein')">Frein</button>
+        <button onclick="filtrerProduits('filtre')">Filtres</button>
+    </div>
+
+</div>
+
+        <div class="grille-produits">
+
+
+            <!-- PRODUIT 1 -->
+
+            <div class="produit" data-categorie="huile moteur">
+
+                <img
+                    src="image/huile-moteur.JPG"
+                    alt="Huile moteur"
+                >
+
+                <h3>
+                    Huile moteur
+                </h3>
+
+                <p class="prix">
+                    15 000 FCFA
+                </p>
+
+                <button
+                    onclick="AjouterPanier('Huile moteur', 15000)"
+                >
+                    Ajouter au panier
+                </button>
+
+            </div>
+
+
+            <!-- PRODUIT 2 -->
+
+            <div class="produit" data-categorie="huile boite">
+
+                <img
+                    src="image/huile-boite.JPG"
+                    alt="Huile de boîte"
+                >
+
+                <h3>
+                    Huile de boîte
+                </h3>
+
+                <p class="prix">
+                    10 000 FCFA
+                </p>
+
+                <button
+                    onclick="AjouterPanier('Huile de boîte', 10000)"
+                >
+                    Ajouter au panier
+                </button>
+
+            </div>
+
+
+            <!-- PRODUIT 3 -->
+
+            <div class="produit" data-categorie="entretien-vidange">
+
+                <img
+                    src="image/entretien-vidange.JPEG"
+                    alt="Entretien et vidange"
+                >
+
+                <h3>
+                    Entretien - Vidange
+                </h3>
+
+                <p class="prix">
+                    20 000 FCFA
+                </p>
+
+                <button
+                    onclick="AjouterPanier('Entretien et vidange', 20000)"
+                >
+                    Ajouter au panier
+                </button>
+
+            </div>
+
+
+            <!-- PRODUIT 4 -->
+
+            <div class="produit" data-categorie="lave-glace">
+
+                <img
+                    src="image/lave-glace.WEBP"
+                    alt="Lave-glace"
+                >
+
+                <h3>
+                    Lave-glace
+                </h3>
+
+                <p class="prix">
+                    5 000 FCFA
+                </p>
+
+                <button
+                    onclick="AjouterPanier('Lave-glace', 5000)"
+                >
+                    Ajouter au panier
+                </button>
+
+            </div>
+
+
+            <!-- PRODUIT 5 -->
+
+            <div class="produit" data-categorie="frein">
+
+                <img
+                    src="image/liquide-de-frein.WEBP"
+                    alt="Liquide de frein"
+                >
+
+                <h3>
+                    Liquide de frein
+                </h3>
+
+                <p class="prix">
+                    8 000 FCFA
+                </p>
+
+                <button
+                    onclick="AjouterPanier('Liquide de frein', 8000)"
+                >
+                    Ajouter au panier
+                </button>
+
+            </div>
+
+
+            <!-- PRODUIT 6 -->
+
+            <div class="produit" data-categorie="filtre">
+
+                <img
+                    src="image/filtre.JFIF"
+                    alt="Filtre automobile"
+                >
+
+                <h3>
+                    Filtre automobile
+                </h3>
+
+                <p class="prix">
+                    5 000 FCFA
+                </p>
+
+                <button
+                    onclick="AjouterPanier('Filtre automobile', 5000)"
+                >
+                    Ajouter au panier
+                </button>
+
+            </div>
+
+
+            <!-- PRODUIT 7 -->
+
+            <div class="produit" data-categorie="entretenir-clim">
+
+                <img
+                    src="image/entretenir-clim.AVIF"
+                    alt="Entretien climatisation"
+                >
+
+                <h3>
+                    Entretien - Climatisation
+                </h3>
+
+                <p class="prix">
+                    25 000 FCFA
+                </p>
+
+                <button
+                    onclick="AjouterPanier('Entretien - Climatisation', 25000)"
+                >
+                    Ajouter au panier
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         À PROPOS
+    ========================== -->
+
+    <section class="a-propos" id="apropos">
+
+        <h2>
+            À propos de nous
+        </h2>
+
+        <p>
+            Chez Joor Garage Automobile, nous disposons
+            de mécaniciens qualifiés et proposons des
+            produits de qualité, avec un service rapide,
+            fiable et professionnel.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section class="contact" id="contact">
+
+        <h2>
+            Contactez-nous
+        </h2>
+
+        <p>
+            77 606 38 38 - 77 857 89 80
+        </p>
+
+        <p>
+            Ou directement sur WhatsApp.
+        </p>
+
+        <a
+            href="https://wa.me/221787816539"
+            class="WhatsApp"
+            target="_blank"
+        >
+            Commander sur WhatsApp
+        </a>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            &copy; 2026 Joor Garage Automobile -
+            Tous droits réservés
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         PANNEAU DU PANIER
+    ========================== -->
+
+    <div
+        id="panier-panel"
+        class="panier-panel"
+    >
+
+        <div class="panier-header">
+
+            <h2>
+                Mon panier
+            </h2>
+
+            <button
+                class="fermer-panier"
+                onclick="fermerPanier()"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <!-- LISTE DES PRODUITS -->
+
+        <div id="liste-panier">
+
+            <p>
+                Votre panier est vide.
+            </p>
+
+        </div>
+
+
+        <!-- TOTAL -->
+
+        <div class="panier-total">
+
+            <strong>
+                Total :
+                <span id="total">0</span>
+                FCFA
+            </strong>
+
+        </div>
+
+
+        <!-- BOUTON COMMANDER -->
+
+        <button
+            class="btn-commande"
+            onclick="passerCommande()"
+        >
+            Passer la commande
+        </button>
+
+
+        <!-- FORMULAIRE -->
+
+        <div
+            class="formulaire-commande"
+            id="formulaire-commande"
+        >
+
+            <h3>
+                Informations de commande
+            </h3>
+
+            <form
+                onsubmit="envoyerCommande(event)"
+            >
+
+                <input
+                    type="text"
+                    id="nom-client"
+                    placeholder="Votre nom"
+                    required
+                >
+
+                <input
+                    type="tel"
+                    id="telephone-client"
+                    placeholder="Votre numéro de téléphone"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="adresse-client"
+                    placeholder="Votre adresse"
+                    required
+                >
+
+                <textarea
+                    id="message-client"
+                    placeholder="Message ou précision (facultatif)"
+                ></textarea>
+
+                <button type="submit">
+                    Envoyer la commande
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         FOND SOMBRE DU PANIER
+    ========================== -->
+
+    <div
+        id="fond-panier"
+        class="fond-panier"
+        onclick="fermerPanier()"
+    ></div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

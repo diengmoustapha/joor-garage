@@ -1,0 +1,835 @@
+/* =========================
+   STYLE GENERAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #F5F5F5;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background: #111;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 7%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+    font-weight: bold;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    color: #FF9800;
+}
+
+nav a::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #FF9800;
+    transition: 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================
+   BOUTON PANIER
+========================= */
+
+.btn-panier {
+    background: #FF9800;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-panier:hover {
+    background: white;
+    color: #FF9800;
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   ACCUEIL
+========================= */
+
+.hero {
+    min-height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 7%;
+    color: white;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.55)
+        ),
+        url("image/garage (2).jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-contenu {
+    max-width: 800px;
+}
+
+.hero-contenu h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-contenu p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background: #FF9800;
+    color: white;
+    padding: 14px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background: white;
+    color: #FF9800;
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   PRODUITS
+========================= */
+
+.produits {
+    padding: 60px 8%;
+    background: #F5F5F5;
+}
+
+.produits h2 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+
+.grille-produits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.produit {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.10);
+    transition: 0.3s ease;
+}
+
+.produit:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.20);
+}
+
+.produit img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+.produit:hover img {
+    transform: scale(1.05);
+}
+
+.produit h3 {
+    font-size: 24px;
+    margin: 25px 0 15px;
+}
+
+.prix {
+    color: #FF9800;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.produit button {
+    background: #111;
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.produit button:hover {
+    background: #FF9800;
+}
+
+
+/* =========================
+   PANNEAU DU PANIER
+========================= */
+
+.panier-panel {
+    position: fixed;
+    top: 0;
+    right: -450px;
+    width: 400px;
+    max-width: 90%;
+    height: 100vh;
+    background: white;
+    z-index: 1001;
+    padding: 25px;
+    overflow-y: auto;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease;
+}
+
+.panier-panel.ouvert {
+    right: 0;
+}
+
+
+/* =========================
+   EN-TETE DU PANIER
+========================= */
+
+.panier-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.panier-header h2 {
+    margin: 0;
+    font-size: 30px;
+}
+
+.fermer-panier {
+    background: none;
+    border: none;
+    font-size: 35px;
+    cursor: pointer;
+    color: #111;
+}
+
+.fermer-panier:hover {
+    color: #FF9800;
+}
+
+
+/* =========================
+   ARTICLES DU PANIER
+========================= */
+
+.article-panier {
+    background: #F5F5F5;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.article-panier p {
+    margin-top: 0;
+    margin-bottom: 15px;
+    line-height: 1.7;
+}
+
+.article-panier strong {
+    font-size: 20px;
+}
+
+.article-panier button {
+    border: none;
+    background: #111;
+    color: white;
+    padding: 8px 12px;
+    margin: 3px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.article-panier button:hover {
+    background: #FF9800;
+}
+
+
+/* =========================
+   TOTAL
+========================= */
+
+.panier-total {
+    font-size: 22px;
+    margin-top: 25px;
+    padding: 20px;
+    background: #F5F5F5;
+    border-radius: 10px;
+}
+
+.panier-total span {
+    color: #FF9800;
+}
+
+
+/* =========================
+   BOUTON COMMANDER
+========================= */
+
+.btn-commande {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px;
+    background: #FF9800;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-commande:hover {
+    background: #E68900;
+}
+
+
+/* =========================
+   FORMULAIRE
+========================= */
+
+.formulaire-commande {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.formulaire-commande h3 {
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.formulaire-commande input,
+.formulaire-commande textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px;
+    margin-bottom: 12px;
+    border: 1px solid #CCC;
+    border-radius: 7px;
+    font-size: 16px;
+    outline: none;
+}
+
+.formulaire-commande input:focus,
+.formulaire-commande textarea:focus {
+    border-color: #FF9800;
+}
+
+.formulaire-commande textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.formulaire-commande button {
+    width: 100%;
+    padding: 14px;
+    background: #25D366;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.formulaire-commande button:hover {
+    background: #1EBE5D;
+}
+
+
+/* =========================
+   FOND SOMBRE
+========================= */
+
+.fond-panier {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none;
+}
+
+.fond-panier.ouvert {
+    display: block;
+}
+
+
+/* =========================
+   PANIER CLASSIQUE
+========================= */
+
+.panier-section {
+    padding: 60px 7%;
+    background: #EEEEEE;
+    text-align: center;
+    scroll-margin-top: 100px;
+}
+
+.panier-section h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+#liste-panier {
+    max-width: 800px;
+    margin: 0 auto 30px;
+}
+
+.panier-section h3 {
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+#total {
+    color: #FF9800;
+    font-size: 28px;
+}
+
+#commander {
+    margin-top: 25px;
+    background: #FF9800;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+#commander:hover {
+    background: #111;
+}
+
+
+/* =========================
+   A PROPOS
+========================= */
+
+.a-propos {
+    padding: 80px 7%;
+    text-align: center;
+    background: white;
+}
+
+.a-propos h2 {
+    font-size: 32px;
+    margin-bottom: 25px;
+    color: #111;
+}
+
+.a-propos p {
+    max-width: 800px;
+    margin: auto;
+    line-height: 1.8;
+    color: #555;
+    font-size: 17px;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+    padding: 80px 7%;
+    text-align: center;
+    background: #F5F5F5;
+}
+
+.contact h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #111;
+}
+
+.contact p {
+    margin-bottom: 20px;
+}
+
+.WhatsApp {
+    display: inline-block;
+    margin-top: 15px;
+    background: #25D366;
+    color: white;
+    padding: 14px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.WhatsApp:hover {
+    background: #111;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+footer p {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   TABLETTE
+========================= */
+
+@media (max-width: 900px) {
+
+    .grille-produits {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================
+   TELEPHONE
+========================= */
+
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .hero {
+        min-height: 500px;
+        padding: 40px 5%;
+    }
+
+    .hero-contenu h1 {
+        font-size: 28px;
+    }
+
+    .hero-contenu p {
+        font-size: 16px;
+    }
+
+    .produits {
+        padding: 40px 5%;
+    }
+
+    .produits h2 {
+        font-size: 32px;
+    }
+
+    .grille-produits {
+        grid-template-columns: 1fr;
+    }
+
+    .produit img {
+        height: 250px;
+    }
+
+    .panier-panel {
+        width: 100%;
+        max-width: 100%;
+    }
+
+}
+
+.filtres-produits {
+    max-width: 900px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+#recherche {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #ddd;
+    border-radius: 30px;
+    font-size: 17px;
+    outline: none;
+    margin-bottom: 20px;
+}
+
+#recherche:focus {
+    border-color: #FF9800;
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.categories button {
+    padding: 10px 20px;
+    border: none;
+    background: #111;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.categories button:hover {
+    background: #FF9800;
+}
+
+/* SERVICES */
+
+.services {
+    padding: 80px 7%;
+    background: white;
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 40px;
+    margin-bottom: 15px;
+    color: #111;
+}
+
+.intro-services {
+    max-width: 700px;
+    margin: 0 auto 50px;
+    color: #666;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.grille-services {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.service {
+    padding: 30px 20px;
+    background: #F5F5F5;
+    border-radius: 15px;
+    transition: 0.3s ease;
+}
+
+.service:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.icone {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.service h3 {
+    font-size: 21px;
+    margin-bottom: 15px;
+    color: #111;
+}
+
+.service p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.btn-service {
+    display: inline-block;
+    margin-top: 45px;
+    padding: 14px 30px;
+    background: #FF9800;
+    color: white;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.btn-service:hover {
+    background: #111;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 900px) {
+
+    .grille-services {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .grille-services {
+        grid-template-columns: 1fr;
+    }
+
+    .services {
+        padding: 60px 5%;
+    }
+
+    .services h2 {
+        font-size: 32px;
+    }
+
+}
+
+.avantages {
+    padding: 80px 7%;
+    background: #111;
+    color: white;
+    text-align: center;
+}
+
+.avantages h2 {
+    font-size: 36px;
+    margin-bottom: 50px;
+}
+
+.grille-avantages {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.avantage {
+    padding: 30px;
+    background: #222;
+    border-radius: 15px;
+    transition: 0.3s ease;
+}
+
+.avantage:hover {
+    transform: translateY(-8px);
+}
+
+.icone-avantage {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.avantage h3 {
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.avantage p {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+
+    .grille-avantages {
+        grid-template-columns: 1fr;
+    }
+
+    .avantages h2 {
+        font-size: 30px;
+    }
+
+}
